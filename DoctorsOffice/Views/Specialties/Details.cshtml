@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+@using DoctorsOffice.Models
+@model DoctorsOffice.Models.Specialty
+
+<h2>Details for specialty @Model.Name</h2>
+<hr />
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>No doctors have this specialty!</p>
+}
+else
+{
+  <h4>Doctors with this specialty:</h4>
+  <ul>
+  @foreach(DoctorSpecialty join in Model.JoinEntities)
+  {
+    <li>@join.Doctor.Name</li>
+  }
+  </ul>
+}
+<a href='@Url.Action("AddDoctor", new { id = Model.SpecialtyId })'>
+  <button>Add a Doctor</button>
+</a>
+
+<a href='@Url.Action("Index")'>
+  <button>Back To List</button>
+</a>

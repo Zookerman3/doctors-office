@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model DoctorsOffice.Models.Patient
+
+<h2>Patient Details for @Html.DisplayFor(model => model.Name)</h2>
+<hr />
+
+<h3>@Html.DisplayNameFor(model => model.Doctor): @Html.DisplayFor(model => model.Doctor.Name)<h3>
+
+
+<a href='@Url.Action("Edit", new { id = Model.PatientId })'>
+  <button class="yellow">Edit Patient</button>
+</a>
+<a href='@Url.Action("Delete", new { id = Model.PatientId })'>
+  <button class="red">Delete Patient</button>
+</a>
+<a href='@Url.Action("Index")'>
+  <button>Back to List</button>
+</a>
