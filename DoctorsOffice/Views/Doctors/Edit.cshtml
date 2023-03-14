@@ -14,9 +14,18 @@
   @Html.LabelFor(model => model.Name)
   @Html.EditorFor(model => model.Name)
 
-  <input type="submit" value="Save" />
+  <input type="submit" value="Save"  />
+}
+
+@using (Html.BeginForm("UpdateDoctorSpec", "Doctors"))
+{
+  @Html.HiddenFor(model => model.DoctorId)
+  @Html.DropDownList("SpecialtyId")
+
+  <input type="submit" value="Save"  />
 }
 
 <a href='@Url.Action("Index")'>
   <button>Back to List</button>
 </a>
+

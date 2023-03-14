@@ -14,6 +14,7 @@
   @Html.LabelFor(model => model.Name)
   @Html.EditorFor(model => model.Name)
 
+  @Html.HiddenFor(model => model.DoctorId)
   @Html.LabelFor(model => model.Doctor)
   @Html.DropDownList("DoctorId")
 
